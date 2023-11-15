@@ -1,0 +1,49 @@
+https://leetcode.com/problems/rotate-array/description/
+
+class Solution {
+    public void rotate(int[] nums, int k) {
+      
+      int n =nums.length;
+
+      k = k % n;
+
+      //reverse whole arraay
+      reverse(nums, 0, n-1);
+
+      //reverse the element from 0 to k-1;
+      reverse(nums, 0, k-1);
+
+      //reverse the elements from k+1 to last element which is n-1
+
+      reverse(nums, k, n-1);
+    }
+
+    private static void reverse(int nums[], int start, int end){
+
+        while(start<end){
+            int temp = nums[start];
+            nums[start] = nums[end];
+            nums[end] = temp;
+            start++;
+            end--;
+        }
+    }
+}
+
+//Time Complexity: O(n) where n is the length of the input array.
+//Space Complexity: O(1) (constant space)
+//technique: two pointer
+
+
+eg:
+Input: nums = [1,2,3,4,5,6,7], k = 3
+Output: [5,6,7,1,2,3,4]
+
+in first reverse(0,n-1)-->(0,6): reverse complete array it become
+7 6 5 4 3 2 1
+
+in second reverse(0,k-1)-->(0,2): it will become
+5 6 7 4 3 2 1 
+
+in last reverse(k, n-1)-->(3,6): it will become rotate array upto 3
+5 6 7 1 2 3 4
