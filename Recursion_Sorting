@@ -16,3 +16,6 @@ class Compute {
         return max;
     }
 }
+
+//TC: O(n)
+//SC: O(n)
