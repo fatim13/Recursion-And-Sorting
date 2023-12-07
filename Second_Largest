@@ -1,0 +1,28 @@
+class Solution {
+    int print2largest(int arr[], int n) {
+       
+       int firstLarge = Integer.MIN_VALUE;
+       int seconLarge =Integer.MIN_VALUE;
+       
+       for(int i=0; i<n; i++){
+           
+           if(arr[i] > firstLarge){
+               seconLarge = firstLarge;
+               firstLarge = arr[i];
+           }
+           else if(arr[i]>seconLarge && arr[i]!=firstLarge){
+                seconLarge = arr[i];
+           }
+       }
+       
+        if( seconLarge==Integer.MIN_VALUE){
+            return -1;
+       }
+       
+       return seconLarge;
+      
+    }
+}
+
+//SC:O(n)...size of the array
+//SC:O(1).. no extera space
